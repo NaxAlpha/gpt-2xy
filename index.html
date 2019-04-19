@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OpenAI GPT2 Text Generator</title>
+    <meta name="description" content="This site has no affiliation with OpenAI">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="my-5 mx-lg-5">
+            <strong>OpenAI GPT2 Scratch Pad</strong>
+        </h2>
+        <div class="px-lg-5 pt-0">
+            <form class="md-form" style="color: #757575;">
+                <textarea name="text" class="form-control md-textarea" rows="10" id="textarea"
+                    placeholder="Write here something"></textarea>
+                <div class="d-flex justify-content-end">
+                    <button class="btn aqua-gradient" type="submit">Generate Text</button>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <p>Made with ❤️️ by <a href="https://github.com/NaxAlpha">Nauman Mustafa</a> | Contact: <a href="mailto:nauman.mustafa.x@gmail.com">nauman.mustafa.x@gmail.com</a></p>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
+    <script>
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            $.post(window.location.href, $(this).serialize(), function (data) {
+                console.log('Result Found!')
+                $('textarea').val(data)
+            });
+        });
+    </script>
+</body>
+</html>
