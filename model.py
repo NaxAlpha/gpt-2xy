@@ -1,5 +1,4 @@
 import torch
-import requests
 from torch.nn import functional as F
 from pytorch_pretrained_bert import GPT2Tokenizer, GPT2Model, GPT2LMHeadModel
 torch.set_grad_enabled(False)
