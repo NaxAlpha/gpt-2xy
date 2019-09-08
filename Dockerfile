@@ -3,5 +3,4 @@ ADD . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 RUN python download.py
-RUN python model.py
 CMD python main.py
