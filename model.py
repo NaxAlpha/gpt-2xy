@@ -3,8 +3,8 @@ from torch.nn import functional as F
 from pytorch_transformers import GPT2Tokenizer, GPT2Model, GPT2LMHeadModel
 torch.set_grad_enabled(False)
 
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2-large')
-model = GPT2LMHeadModel.from_pretrained('gpt2-large').eval()
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2-medium')
+model = GPT2LMHeadModel.from_pretrained('gpt2-medium').eval()
 
 
 def extend(text, size=20):
