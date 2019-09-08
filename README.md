@@ -2,7 +2,7 @@
 
 This repository uses HuggingFace's GPT2 Implementation and exposes an creates a nice user interface for testing GPT2 power. Even though it may not be exactly as good as authors' original tensorflow implementation, it still surprises sometimes. 
 
-**New**: Added GPT-2 Large model support
+**New**: Added GPT-2 Medium model support (large model requires >2GB RAM which is not supported by Cloud Run)
 
 ## Get Started
 
