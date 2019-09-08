@@ -1,6 +1,8 @@
 # GPT2 XY
 
-This repository uses HuggingFace's GPT2 Implementation and exposes an creates a nice user interface for testing GPT2 power. Even though it may not be exactly as good as authors' original tensorflow implementation, it still surprises sometimes.
+This repository uses HuggingFace's GPT2 Implementation and exposes an creates a nice user interface for testing GPT2 power. Even though it may not be exactly as good as authors' original tensorflow implementation, it still surprises sometimes. 
+
+**New**: Added GPT-2 Large model support
 
 ## Get Started
 
