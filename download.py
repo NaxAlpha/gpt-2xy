@@ -2,9 +2,9 @@
 from pytorch_transformers.file_utils import cached_path
 
 urls = [
-    'https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-large-vocab.json',
-    'https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-large-merges.txt',
-    'https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-large-pytorch_model.bin',
+    'https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-vocab.json',
+    'https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-merges.txt',
+    'https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-pytorch_model.bin',
 ]
 
 for url in urls:
