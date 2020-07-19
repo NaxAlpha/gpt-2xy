@@ -12,7 +12,7 @@ model = model.to(device)
 def extend(text, size=20):
     tokens = tokenizer.encode(text)
     tokens = torch.tensor([tokens]).to(device)
-    tokens = model.generate(tokens, max_length=size, do_sample=True)
+    tokens = model.generate(tokens, max_length=size+tokens.shape[1], do_sample=True)
     tokens = tokens[0].tolist()
     return tokenizer.decode(tokens)
 
