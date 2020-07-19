@@ -1,21 +1,19 @@
 import torch
 from torch.nn import functional as F
-from pytorch_transformers import GPT2Tokenizer, GPT2Model, GPT2LMHeadModel
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 torch.set_grad_enabled(False)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = GPT2LMHeadModel.from_pretrained('gpt2').eval()
+tokenizer = GPT2Tokenizer.from_pretrained('./gpt2')
+model = GPT2LMHeadModel.from_pretrained('./gpt2').eval()
 model = model.to(device)
 
 
 def extend(text, size=20):
     tokens = tokenizer.encode(text)
-    prediction, past = torch.tensor([tokens]).to(device), None
-    for i in range(size):
-        prediction, past = model(prediction, past=past)
-        prediction = torch.multinomial(F.softmax(prediction[:, -1]), 1)
-        tokens.append(prediction.item())
+    tokens = torch.tensor([tokens]).to(device)
+    tokens = model.generate(tokens, max_length=size, do_sample=True)
+    tokens = tokens[0].tolist()
     return tokenizer.decode(tokens)
 
 
