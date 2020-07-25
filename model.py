@@ -10,6 +10,8 @@ model = model.to(device)
 
 
 def extend(text, size=20):
+    if not text:
+        text = '<|endoftext|>'
     tokens = tokenizer.encode(text)
     tokens = torch.tensor([tokens]).to(device)
     tokens = model.generate(tokens, max_length=size+tokens.shape[1], do_sample=True)
