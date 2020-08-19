@@ -46,7 +46,7 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
     <script>
-        $(document).read(function() {
+        $(document).ready(function() {
             var params = new URLSearchParams(window.location.search);
             $('textarea').val(params.get('text'))
         })
