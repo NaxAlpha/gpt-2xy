@@ -46,6 +46,10 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
     <script>
+        $(document).read(function() {
+            var params = new URLSearchParams(window.location.search);
+            $('textarea').val(params.get('text'))
+        })
         $('form').on('submit', function (e) {
             e.preventDefault();
             $.post(window.location.href, $(this).serialize(), function (data) {
