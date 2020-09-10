@@ -10,6 +10,7 @@ To get started on this project, follow these steps:
 
 * Clone: `git clone https://github.com/NaxAlpha/gpt-2xy.git` and `cd gpt-2xy`
 * Install Dependencies: `pip install -r requirements.txt`
+* Download the gpt related data: python download.py
 * Run server: `python main.py`
 * Open Web Browser and visit: `http://localhost:8080/`
 * Type `Microsoft and Google` and press `GENERATE TEXT`
