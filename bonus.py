@@ -12,8 +12,7 @@ device = 'cuda' if torch.cuda.is_available() and is_gpu else 'cpu'
 
 
 class SingleTextFile(Dataset):
-    def __init__(self, fn, max_len=128):
-        tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+    def __init__(self, fn, tokenizer, max_len=128):
         with open(fn) as f:
             text = f.read()
         self.tokens = tokenizer.encode(text)
@@ -28,19 +27,32 @@ class SingleTextFile(Dataset):
 
 
 if __name__ == '__main__':
-  ds = SingleTextFile('big.txt', 128)
-  dl = DataLoader(ds, batch_size=8, shuffle=True)
   
+  tokenizer = GPT2Tokenizer.from_pretrained(model_name)
   model = GPT2LMHeadModel.from_pretrained(model_name).to(device)
   optim = torch.optim.Adam(model.parameters(), lr=1e-6)
+    
+  ds = SingleTextFile('data.txt', tokenizer, 128)
+  dl = DataLoader(ds, batch_size=8, shuffle=True)
   
   prog = tqdm(dl)
   for i, batch in enumerate(prog):
       batch = batch.cuda()
-      loss, *_ = model(batch, labels=batch)
+      loss, *_ = model(
+          batch, 
+          labels=batch
+      )
 
       optim.zero_grad()
       loss.backward()
       optim.step()
+        
+      if i % 200 == 0:
+        print('----------------------------')
+        sample = model.generate(
+            max_length=100, 
+            do_sample=True,
+        )[0]
+        print(tokenizer.decode(sample.tolist()))
       
   torch.save(model.state_dict(), 'gpt2.pt')
